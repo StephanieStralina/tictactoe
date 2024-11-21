@@ -1,0 +1,46 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: black;
+    color: white;
+    height: 100vh;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 8vmin;
+    gap: 2vmin;
+}
+
+#board {
+    background-color: white;
+    border-radius: 5%;
+    display: grid;
+    grid-template-columns: repeat(3, 18vmin);
+    grid-template-rows: repeat(3, 18vmin);
+    gap: 1vmin;
+    margin-top: 2vmin;
+    padding: 1.5vmin;
+}
+
+#board > div {
+    background-color: pink;
+    border-radius: 15%;
+    border: 0.1vmin solid white;
+}
+
+#rematch{
+    background-color: #pink;
+    border: 1px solid #pink;
+    border-radius: 11px;
+    box-sizing: border-box;
+    color: #D33A2C;
+    font-size: 2rem;
+    display: flex;
+    padding: 1.5vmin 6vmin;
+    margin-top: 2vmin;
+}
