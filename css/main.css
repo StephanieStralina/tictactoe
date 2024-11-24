@@ -5,42 +5,57 @@
 }
 
 body {
-    background-color: black;
-    color: white;
+    background-image:url('../media/Background.png');
+    background-attachment:fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: darkblue;
     height: 100vh;
+    width: 100%; 
     margin: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin-top: 8vmin;
+    margin-top: 4vmin;
     gap: 2vmin;
 }
 
+#head-img {
+    height: 20vmin;
+}
+
+h1 {
+    font-size: 1.5em;
+    margin-top: -2vmin;
+}
+
 #board {
-    background-color: white;
+    background-color: #F9F8F4;
     border-radius: 5%;
     display: grid;
-    grid-template-columns: repeat(3, 18vmin);
-    grid-template-rows: repeat(3, 18vmin);
+    grid-template-columns: repeat(3, 15vmin);
+    grid-template-rows: repeat(3, 15vmin);
     gap: 1vmin;
     margin-top: 2vmin;
     padding: 1.5vmin;
 }
 
 #board > div {
-    background-color: pink;
-    border-radius: 15%;
-    border: 0.1vmin solid white;
+    background-color: #F9F8F4;
+    border: .5vmin solid #d7d8cf;
+    border-radius: 10%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-#rematch{
-    background-color: #pink;
-    border: 1px solid #pink;
-    border-radius: 11px;
-    box-sizing: border-box;
-    color: #D33A2C;
+#rematch {
+    background-color: #0673A3;
+    border-radius: 10px;
+    color: #F9F8F4;
     font-size: 2rem;
     display: flex;
-    padding: 1.5vmin 6vmin;
+    padding: 1.5vmin 4vmin;
     margin-top: 2vmin;
+    font-family: sans-serif;
+    font-weight: 600;
 }
