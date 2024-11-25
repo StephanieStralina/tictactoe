@@ -1,13 +1,14 @@
 /*----- constants -----*/
 const players = {
+    '1': {img: '../media/Totoro.png', name: 'Totoro',},
+    '-1': {img: '../media/Catbus.png', name: 'Catbus',}, 
+};
+
+const playersPic = {
     '1': '../media/Totoro.png',
     '-1': '../media/Catbus.png',
 };
 
-const playerNames = {
-    '1': 'Totoro',
-    '-1': 'Catbus',
-};
 
 const winningCombos = [
     [0, 1, 2],
@@ -60,7 +61,9 @@ function handleSelect(evt){
     if (clickedEl === -1) return;
     // Guard for occupied space
     if (board[clickedEl] === 1 || board[clickedEl] === -1) return;
+    // Guard for clicking after game ends
     if (board[clickedEl] === '' && winner === null) {
+        // board[clickedEl] = turn;
         board[clickedEl] = turn;
         winner = checkWinner();
         turn *= -1;
@@ -84,15 +87,15 @@ function checkWinner() {
 
 
 function render() {
-    updateBoard();
+    renderBoard();
     renderControls();
-    updateMessage();
+    renderMessage();
 }
 
-function updateBoard() {
+function renderBoard() {
     board.forEach(function(element, elIdx){
         const selCel = document.getElementById(`${elIdx}`);
-        selCel.style.backgroundImage = `url('${players[element]}`;
+        selCel.style.backgroundImage = `url(${playersPic[element]})`;
     });
 };
 
@@ -100,20 +103,20 @@ function renderControls() {
     rematchBtn.style.visibility = winner ? 'visible' : 'hidden';
 }
 
-function updateMessage() {
+function renderMessage() {
     if (winner === null) {
-        messageEl.innerHTML = `<span style="color: ${playerNames[turn]}">${playerNames[turn]}</span>'s Turn`;
+        messageEl.innerHTML = `${players[turn].name}</span>'s Turn`;
     } else if (winner === 'Tie') {
         messageEl.innerText = "Awww rats! You tied!";
     } else {
-        messageEl.innerHTML = `<span style="color: ${playerNames[winner]}">${playerNames[winner]}</span> Wins!`;
+        messageEl.innerHTML = `<span style="color: #E2AD00">${players[winner].name} Wins!</span>`;
     }
 }
 
 function rematch(){
     board.forEach(function(element, elIdx){
         const selCel = document.getElementById(`${elIdx}`);
-        selCel.style.backgroundColor = 'white';
+        selCel.style.backgroundImage = 'none';
     });
     init();
 }
