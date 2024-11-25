@@ -1,14 +1,9 @@
 /*----- constants -----*/
 const players = {
-    '1': {img: '../media/Totoro.png', name: 'Totoro',},
-    '-1': {img: '../media/Catbus.png', name: 'Catbus',}, 
+    '1': {img: 'url(../media/Totoro.png)', name: 'Totoro',},
+    '-1': {img: 'url(../media/Catbus.png)', name: 'Catbus',},
+    '' : {img: 'none', name: 'null'}, 
 };
-
-const playersPic = {
-    '1': '../media/Totoro.png',
-    '-1': '../media/Catbus.png',
-};
-
 
 const winningCombos = [
     [0, 1, 2],
@@ -63,7 +58,6 @@ function handleSelect(evt){
     if (board[clickedEl] === 1 || board[clickedEl] === -1) return;
     // Guard for clicking after game ends
     if (board[clickedEl] === '' && winner === null) {
-        // board[clickedEl] = turn;
         board[clickedEl] = turn;
         winner = checkWinner();
         turn *= -1;
@@ -85,7 +79,6 @@ function checkWinner() {
     }
 }
 
-
 function render() {
     renderBoard();
     renderControls();
@@ -95,7 +88,7 @@ function render() {
 function renderBoard() {
     board.forEach(function(element, elIdx){
         const selCel = document.getElementById(`${elIdx}`);
-        selCel.style.backgroundImage = `url(${playersPic[element]})`;
+        selCel.style.backgroundImage = `${players[element].img}`;
     });
 };
 
